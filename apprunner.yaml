@@ -1,11 +1,12 @@
 version: 1.0
-runtime: java17
+runtime: corretto11
 build:
   commands:
     build:
+      - echo "Building with Maven and Corretto 11"
       - mvn clean package -DskipTests
 run:
-  runtime-version: java17
+  runtime-version: 11
   command: java -jar target/GitTest-1.0-SNAPSHOT.jar
   network:
     port: 8080
