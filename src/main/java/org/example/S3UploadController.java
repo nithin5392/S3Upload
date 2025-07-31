@@ -16,7 +16,7 @@ public class S3UploadController {
     
     private final S3DocumentUploader uploader;
     
-    public S3UploadController(S3Client s3Client, @Value("${app.s3.bucket}") String bucketName) {
+    public S3UploadController(S3Client s3Client, @Value("${S3_BUCKET_NAME:nithin-edu-test}") String bucketName) {
         this.uploader = new S3DocumentUploader(bucketName, s3Client);
     }
 

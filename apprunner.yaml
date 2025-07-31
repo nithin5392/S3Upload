@@ -1,0 +1,17 @@
+version: 1.0
+runtime: java17
+build:
+  commands:
+    build:
+      - mvn clean package -DskipTests
+run:
+  runtime-version: java17
+  command: java -jar target/GitTest-1.0-SNAPSHOT.jar
+  network:
+    port: 8080
+    env: PORT
+  env:
+    - name: AWS_REGION
+      value: us-east-1
+    - name: S3_BUCKET_NAME
+      value: nithin-edu-test

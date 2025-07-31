@@ -11,18 +11,11 @@ import software.amazon.awssdk.services.s3.S3Client;
 @Configuration
 public class AwsConfig {
 
-    @Value("${app.accessKeyId}")
-    private String accessKey;
-
-    @Value("${app.secretKey}")
-    private String secretKey;
-
     @Bean
     public S3Client s3Client() {
-        AwsBasicCredentials credentials = AwsBasicCredentials.create(accessKey, secretKey);
+        // Use default credential chain (works with App Runner and EC2 IAM roles)
         return S3Client.builder()
                 .region(Region.US_EAST_1)
-                .credentialsProvider(StaticCredentialsProvider.create(credentials))
                 .build();
     }
 }
