@@ -16,3 +16,9 @@ run:
       value: us-east-1
     - name: S3_BUCKET_NAME
       value: nithin-edu-test
+  health-check:
+    path: /actuator/health
+    interval: 30
+    timeout: 5
+    healthy-threshold: 2
+    unhealthy-threshold: 3
